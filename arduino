@@ -1,0 +1,18 @@
+boolean sw = true;
+
+void setup() {
+  Serial.begin(57600);
+}
+
+void loop() {
+  short rdval;
+  if(sw) rdval = analogRead(0);
+  else  rdval = analogRead(5);
+  if(!sw) Serial.print("\t");
+  Serial.print(rdval);
+  Serial.print("\n");
+
+  Serial.flush();
+  delay(1000);
+  sw=!sw;
+}
